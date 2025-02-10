@@ -1,0 +1,22 @@
+article {
+    background-color: #FFECB3;
+    font-size: 16px;
+    color: #333;
+}
+
+.featured {
+    background-color: #FFD54F;
+    font-weight: bold;
+    Border: 2px;
+    border-style: solid;
+    border-color: #FFA000;
+}
+
+.featured:hover {
+    background-color: #FFB300;
+}
+
+article p {
+    line-height: 1.5;
+    font-style: italic;
+}
