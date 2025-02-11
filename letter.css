@@ -1,0 +1,27 @@
+body {
+    line-height:1.5;
+}
+
+header {
+    text-align: center;
+}
+
+nav {
+    text-align: none;
+}
+
+address {
+    font-style: none;
+}
+
+.sender {
+    text-align: right;
+}
+
+main {
+    margin: 40px;
+}
+
+footer {
+    margin-left: 60px;
+}
