@@ -12,11 +12,21 @@ article {
     border-color: #FFA000;
 }
 
-.featured:hover {
-    background-color: #FFB300;
+@keyframes animation {
+    from {background-color: FFD54F;}
+    to {background-color: rgb(174, 174, 239);}
 }
+
+.featured:hover {
+    animation-name: animation;
+    animation-duration: 3s;
+    animation-fill-mode: forwards;
+
+}
+
 
 article p {
     line-height: 1.5;
     font-style: italic;
 }
+
