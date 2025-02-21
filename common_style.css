@@ -1,0 +1,194 @@
+@keyframes floating {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+img {
+    animation: floating 3s ease-in-out infinite;
+}
+
+.scale-hover {
+    transition: transform 0.3s ease;
+}
+
+.scale-hover:hover {
+    transform: scale(1.2); 
+}
+
+.rotate-hover {
+    transition: transform 0.8s ease;
+}
+
+.rotate-hover:hover {
+    transform: rotate(15deg); 
+}
+
+body {
+    background-color: #0f1314;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-color: #0f1314;
+    color: white;
+    padding: 5px 15px 5px 15;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+main {
+    color: white;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    background-color: #0f1314;
+    padding: 15px;
+    color: white;
+}
+
+footer a {
+    color: white;
+}
+
+.homeMain {
+    display: flex;
+    justify-content: space-between;
+    background-color: #21292c;
+    padding: 75px;
+}
+
+.aboutme {
+    background-color: #21292c;
+    padding: 75px;
+}
+
+.aboutme a {
+    color: white;
+}
+
+.blog {
+    background-color: #21292c;
+    padding: 75px;
+}
+
+.projects {
+    display: flex;
+    justify-content: space-between;
+    padding: 75px;
+}
+
+.projectInfo {
+    margin: 20px;
+}
+
+.featuredProjects {
+    margin: 20px;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+header a {
+    color: white;
+    margin: 10px;
+    text-decoration: none;
+}
+
+header a:hover {
+    color: #9FC69F;
+    font-weight: bold;
+}
+
+.active a{
+    color: #9FC69F;
+}
+
+.info {
+    margin: 20px;
+}
+
+.image {
+    margin: 20px;
+}
+
+.image img {
+    width: 250px;
+    border: 2px solid;
+    border-color:#9FC69F;
+}
+
+#images {
+    background-color: #21292c;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-evenly;
+}
+
+#images img {
+    margin: 20px;
+    border: 2px solid #9FC69F;
+}
+
+.pic {
+    padding: 20px;
+    text-align: center;
+}
+
+.holyGrail {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 20px;
+}
+
+.sidebar {
+    flex: 1;
+    background-color: #21292c;
+    padding: 15px;
+}
+
+.content {
+    flex: 2;
+    background-color: #21292c;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.ads {
+    flex: 1;
+    background-color: #21292c;
+    padding: 15px;
+}
+
+@media (max-width: 768px) {
+    .holyGrail {
+        flex-direction: column;
+    }
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+ul ul {
+    list-style-type: circle;
+}
