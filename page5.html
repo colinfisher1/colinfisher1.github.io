@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Journey Continues</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* default background color */
+        body {
+            transition: background-color 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <h1>The Journey Continues</h1>
+        <p>With the guardian's riddle behind you, the path forward splits into three. Each route is known to favor certain traits: strength, wisdom, or stealth. Choose your path wisely, as it will influence the challenges you face ahead.</p>
+        
+        <form id="pathForm" method="GET">
+            <label for="pathChoice">Choose Your Path:</label>
+            <select id="pathChoice" name="pathChoice" required>
+                <option value="">--Please choose an option--</option>
+                <option value="strength">The Path of Strength</option>
+                <option value="wisdom">The Path of Wisdom</option>
+                <option value="stealth">The Path of Stealth</option>
+            </select>
+
+            <input type="submit" id="continueButton" value="Continue on Your Journey">
+        </form>
+
+        <p>Your choice will not only test your abilities but also reveal deeper truths about your character.</p>
+    </section>
+
+    <script>
+        const pathChoice = document.getElementById("pathChoice");
+        const pathForm = document.getElementById("pathForm");
+
+        // change background color based on selection
+        function updateBackgroundColor(path) {
+            switch (path) {
+                case "strength":
+                    document.body.style.backgroundColor = "#ff6b6b";
+                    break;
+                case "wisdom":
+                    document.body.style.backgroundColor = "#6b8eff"; 
+                    break;
+                case "stealth":
+                    document.body.style.backgroundColor = "#4b4b4b"; 
+                    break;
+                default:
+                    document.body.style.backgroundColor = "white"; 
+            }
+        }
+
+        // listen for changes in selection
+        pathChoice.addEventListener("change", function () {
+            updateBackgroundColor(pathChoice.value);
+        });
+
+        // change form action before submission
+        pathForm.addEventListener("submit", function (event) {
+            if (pathChoice.value === "stealth") {
+                pathForm.action = "page5b.html";
+            } else {
+                pathForm.action = "page6.html";
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conclusion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section class="container">
+        <h1>Your Quest Has Concluded</h1>
+        <p id="dynamic-conclusion">Loading your final outcome...</p>
+        <p>The kingdom will remember your deeds for generations to come.</p>
+
+        <fieldset class="box">
+            <p>Your Feedback:</p>
+            <textarea id="feedback" name="feedback" rows="6" cols="60" placeholder="Enter your feedback here...""></textarea>
+            <button id="submit-feedback">Submit Feedback</button>
+        </fieldset>
+
+        <button id="play-again">Play Again</button>
+    </section>
+    <comment>I'd like to thank my grandparents for always being there for me.</comment>
+    <script>
+        const userChoices = {
+            decision: localStorage.getItem("decision") || "fight",
+            weapon: localStorage.getItem("weapon") || "sword",
+            armor: localStorage.getItem("armor") || "plate armor",
+            message: localStorage.getItem("message") || "Your reign of terror ends today, Malakar!"
+        };
+
+        // generate a conclusion based on choices
+        function generateConclusion(choices) {
+            let result = `With your ${choices.weapon} in hand, `;
+
+            if (choices.armor !== "none") {
+                result += `protected by your ${choices.armor}, `;
+            }
+
+            result += `you chose to ${choices.decision} Malakar. `;
+
+            if (choices.decision === "fight") {
+                result += "A fierce battle erupted, steel clashing against dark magic. In the end, your strength prevailed.";
+            } else if (choices.decision === "trick") {
+                result += "Using your cunning, you deceived Malakar and seized the Crystal of Wisdom without a single drop of blood spilled.";
+            } else {
+                result += "You decided to retreat and fight another day. The battle may be lost, but the war is not over.";
+            }
+
+            return result;
+        }
+
+        // insert conclusion into the HTML
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("dynamic-conclusion").textContent = generateConclusion(userChoices);
+        });
+
+        // Feedback Submission
+        document.getElementById("submit-feedback").addEventListener("click", function () {
+            const feedback = document.getElementById("feedback").value.trim();
+            if (feedback) {
+                alert("Thank you for your feedback!");
+                document.getElementById("feedback").value = "";
+            } else {
+                alert("Please enter some feedback before submitting.");
+            }
+        });
+
+        // reset game
+        document.getElementById("play-again").addEventListener("click", function () {
+            localStorage.clear(); // Clear stored choices
+            window.location.href = "welcome.html"; // redirect to the start
+        });
+    </script>
+</body>
+</html>

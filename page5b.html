@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Path of Stealth</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+        .stealth-option {
+            cursor: pointer;
+            padding: 10px;
+            margin: 5px;
+            background-color: #ccc;
+            border: 1px solid #333;
+            display: inline-block;
+        }
+
+        .pressed {
+            background-color: #ff6b6b; 
+        }
+    </style>
+</head>
+<body>
+    <section class="container">
+        <h1>The Path of Stealth</h1>
+        <p>To successfully navigate the Path of Stealth, you must choose your actions carefully. Select the correct sequence of actions to avoid detection and reach your objective.</p>       
+
+        <div class="stealth-option" id="action1">Hide in the shadows</div>
+        <div class="stealth-option" id="action2">Run quickly to the next cover</div>
+        <div class="stealth-option" id="action3">Create a distraction</div>
+        <div class="stealth-option" id="action4">Wait for the right moment</div>
+
+        <br>
+        <button id="checkSequenceBtn">Check Sequence</button>
+        <button id="resetBtn">Reset!</button>
+    </section>
+
+    <script>
+        const correctSequence = ['hide', 'wait', 'distract'];
+
+        // store actions clicked by the user
+        let userSequence = [];
+
+        // get action elements
+        const action1 = document.getElementById('action1');
+        const action2 = document.getElementById('action2');
+        const action3 = document.getElementById('action3');
+        const action4 = document.getElementById('action4');
+
+        // get buttons
+        const checkSequenceBtn = document.getElementById('checkSequenceBtn');
+        const resetBtn = document.getElementById('resetBtn');
+
+        // add event listeners
+        function handleActionClick(actionName) {
+            // highlight the action button when clicked
+            this.classList.add('pressed');
+            userSequence.push(actionName);
+        }
+
+        // check the sequence when the user clicks "Check Sequence"
+        function checkSequence() {
+            if (JSON.stringify(userSequence) === JSON.stringify(correctSequence)) {
+                alert('Congratulations! You have completed the Path of Stealth.');
+                window.location.href = 'page6.html'; 
+            } else {
+                alert('Incorrect sequence. Try again!');
+                reset();
+            }
+        }
+
+        // reset the sequence and unpress the buttons
+        function reset() {
+            userSequence = [];
+            const actions = document.querySelectorAll('.stealth-option');
+            actions.forEach(action => action.classList.remove('pressed'));
+        }
+
+        // attach event listeners for actions
+        action1.addEventListener('click', function () { handleActionClick.call(this, 'hide'); });
+        action2.addEventListener('click', function () { handleActionClick.call(this, 'run'); });
+        action3.addEventListener('click', function () { handleActionClick.call(this, 'distract'); });
+        action4.addEventListener('click', function () { handleActionClick.call(this, 'wait'); });
+
+        // attach event listener for checking the sequence
+        checkSequenceBtn.addEventListener('click', checkSequence);
+
+        // attach event listener for resetting the sequence
+        resetBtn.addEventListener('click', reset);
+    </script>
+</body>
+</html>
